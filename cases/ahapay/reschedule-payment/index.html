@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Как объяснить сложные правила пролонгации платежа понятно и спокойно — кейс сценария Reschedule payment в AhaPay"><title>Пролонгация платежа — AhaPay | Ulyana Gribenchenko</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.Dq3Pxw3c.js"></script><link rel="stylesheet" href="/_astro/_astro_assets.9sBO24Bh.css"><link rel="stylesheet" href="/_astro/case.Dyj8J9CW.css"><script type="module" src="/_astro/page.Do0t9NWT.js"></script><style>[data-astro-transition-scope="astro-6rfnnncv-1"] { view-transition-name: case-reschedule-payment; }@layer astro { ::view-transition-old(case-reschedule-payment) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(case-reschedule-payment) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(case-reschedule-payment) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(case-reschedule-payment) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-6rfnnncv-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-6rfnnncv-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-6rfnnncv-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-6rfnnncv-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-6rfnnncv-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-6rfnnncv-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-6rfnnncv-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-6rfnnncv-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body><a href="/" class="case-shell__close" aria-label="Закрыть кейс" title="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a><nav class="case-toc" aria-label="Разделы кейса"><div class="case-toc__dots"><a href="#top" class="case-toc__dot" data-section="top" aria-label="Обзор"></a><a href="#context" class="case-toc__dot" data-section="context" aria-label="Проблемы и решения"></a><a href="#entry-points" class="case-toc__dot" data-section="entry-points" aria-label="Точки входа"></a><a href="#rules" class="case-toc__dot" data-section="rules" aria-label="Логика пролонгации"></a><a href="#main-flow" class="case-toc__dot" data-section="main-flow" aria-label="Основной сценарий"></a><a href="#results-metrics" class="case-toc__dot" data-section="results-metrics" aria-label="Результаты"></a></div><div class="case-toc__popover-zone"><div class="case-toc__popover"><ul><li><a href="#top" data-section="top">Обзор</a></li><li><a href="#context" data-section="context">Проблемы и решения</a></li><li><a href="#entry-points" data-section="entry-points">Точки входа</a></li><li><a href="#rules" data-section="rules">Логика пролонгации</a></li><li><a href="#main-flow" data-section="main-flow">Основной сценарий</a></li><li><a href="#results-metrics" data-section="results-metrics">Результаты</a></li></ul></div></div></nav><div data-astro-transition-scope="astro-6rfnnncv-1" class="case-shell"><div class="case-shell__content"><main><!-- HERO --><section id="top" class="section hero"><div class="container" style="gap: 50px;"><div class="hero__titleblock"><h1 class="hero__title">Пролонгация платежа: альтернатива просрочке</h1></div><div class="hero-phone reveal" style="--hero-mask: url('/case-assets/reschedule-hero-mask.png');"><video autoplay muted loop playsinline preload="metadata" poster="/case-assets/video/reschedule-hero-poster.jpg"><source src="/case-assets/video/reschedule-hero.mp4" type="video/mp4"></video></div></div></section><!-- CONTEXT --><section id="context" class="section"><div class="container"><h2 class="section-title">Проблемы и&nbsp;решения</h2><div class="grid-2 reveal"><div class="card bullet"><p class="hyp-label hyp-label--muted">проблема 1</p><p class="card-title">У&nbsp;пользователя не&nbsp;было понятного способа перенести платёж</p><p class="card-text">Если пользователь не&nbsp;успевал оплатить вовремя, продукт не&nbsp;предлагал прозрачный сценарий переноса даты внутри приложения</p></div><div class="card bullet"><p class="hyp-label">решение 1</p><p class="card-title">Добавили сценарий переноса платежа</p><p class="card-text">Дали пользователю понятный путь: выбрать новую дату, увидеть условия переноса и&nbsp;подтвердить действие внутри приложения</p></div><div class="card bullet"><p class="hyp-label hyp-label--muted">проблема 2</p><p class="card-title">Условия переноса могли быть непонятны</p><p class="card-text">Это чувствительный платёжный сценарий: без&nbsp;явного объяснения комиссии, новой даты и&nbsp;последствий пользователь мог не&nbsp;понимать, за&nbsp;что платит и&nbsp;что изменится после переноса</p></div><div class="card bullet"><p class="hyp-label">решение 2</p><p class="card-title">Показали условия до&nbsp;подтверждения</p><p class="card-text">На&nbsp;ключевых шагах объяснили комиссию за&nbsp;перенос, новую дату платежа и&nbsp;изменение графика, чтобы пользователь принимал решение осознанно</p></div><div class="card bullet"><p class="hyp-label hyp-label--muted">проблема 3</p><p class="card-title">Просрочка создавала риск для&nbsp;бизнеса</p><p class="card-text">Комиссия за&nbsp;просрочку не&nbsp;решает главную задачу: если пользователь уходит в&nbsp;просрочку глубже, растут риск неоплаты, нагрузка на&nbsp;поддержку и&nbsp;вероятность потери клиента</p></div><div class="card bullet"><p class="hyp-label">решение 3</p><p class="card-title">Сделали перенос управляемой альтернативой просрочке</p><p class="card-text">Сценарий помогает удержать пользователя в&nbsp;платёжном пути: он&nbsp;переносит дату, оплачивает комиссию за&nbsp;перенос и&nbsp;возвращается к&nbsp;основному платежу в&nbsp;новую дату</p></div></div></div></section><!-- ENTRY POINTS --><section id="entry-points" class="section"><div class="container"><h2 class="section-title">Точки входа</h2><p class="card-text" style="max-width: 760px; text-align: center; color: #323232; margin-top: -12px;">Мы отправляем пуши и&nbsp;письма на&nbsp;имейл с&nbsp;напоминанием об&nbsp;автосписании и&nbsp;опцией пролонгации за&nbsp;3 дня до&nbsp;платежа, а&nbsp;также спустя 1 день просрочки. В&nbsp;самом приложении также есть отдельные точки входа в&nbsp;сценарий пролонгации</p><div class="entry-diagram-scroll reveal" style="margin-top: 10px;"><img src="/_astro/entry-points-diagram.5LuHyPQp_1pd6Vz.webp" alt="Три точки входа в&amp;nbsp;пролонгацию: главный экран, список заказов, экран заказа" loading="lazy" decoding="async" width="2534" height="1112"></div></div></section><!-- BUSINESS RULES --><section id="rules" class="section"><div class="container"><h2 class="section-title">Как устроена логика пролонгации</h2><p class="card-text" style="max-width: 700px; text-align: center; color: #323232; margin-top: -12px;">Виджет заранее объясняет, доступен&nbsp;ли&nbsp;перенос, сколько дней ещё&nbsp;можно использовать и&nbsp;почему сценарий может быть заблокирован</p><div class="entry-diagram-scroll reveal" style="margin-top: 10px;"><img src="/_astro/widget-states.DLseNAM-_2poV7S.webp" alt="Четыре состояния виджета пролонгации: можно выбрать 7 или&amp;nbsp;14 дней, доступно только сегодня, просрочка по&amp;nbsp;заказу больше 2 дней, лимит исчерпан" loading="lazy" decoding="async" width="2560" height="688"></div></div></section><!-- MAIN FLOW --><section id="main-flow" class="section"><div class="container"><h2 class="section-title">Основной сценарий</h2><p class="card-text" style="max-width: 700px; text-align: center; color: #323232; margin-top: -12px;">Пример одного из&nbsp;сценариев: пользователь проходит от&nbsp;точки входа к&nbsp;выбору новой даты, confirmation-экрану и&nbsp;оплате комиссии за&nbsp;перенос. Другие ветки зависят от&nbsp;истории заказа и&nbsp;доступных опций</p><div class="flow-diagram-scroll reveal" style="margin-top: 10px;" id="flow-diagram-container"><img src="/_astro/main-flow-diagram-v5.DIPKZJqN_Z2jpWfB.webp" alt="Основной сценарий пролонгации: от&amp;nbsp;точки входа до&amp;nbsp;выбора новой даты, confirmation-экрана и&amp;nbsp;оплаты комиссии за&amp;nbsp;перенос" loading="lazy" decoding="async" width="4267" height="1440"></div><!-- Hover magnifier: the diagram is too dense to read at its 480px display height,
+             but shrinking it further to fit the page width would make it worse, not better
+             (see the comment on .flow-diagram-scroll in case.css) — so instead of trying to
+             fit more detail into the small strip, hovering it opens a bigger fixed panel
+             below showing a 2.2x-zoomed, high-res (8000px source, not the downscaled 4267px
+             one used for the strip itself) crop centered on the cursor position. Sized to
+             comfortably fit about one flow "step" (one phone mockup + its note) at once. --><div class="flow-lens" id="flow-lens" aria-hidden="true"><img src="/_astro/main-flow-diagram-v5.DIPKZJqN_1phF7g.webp" alt loading="lazy" decoding="async" width="8000" height="2700" class="flow-lens__img"></div></div></section><script type="module">document.addEventListener(`astro:page-load`,()=>{let e=document.querySelector(`#flow-diagram-container`),t=document.querySelector(`#flow-lens`),n=e?.querySelector(`img`),r=t?.querySelector(`img`);if(!e||!t||!n||!r)return;let i=2.2,a=(e,t,n)=>Math.min(n,Math.max(t,e)),o=()=>{let e=n.getBoundingClientRect();r.style.width=`${e.width*i}px`,r.style.height=`${e.height*i}px`};e.addEventListener(`mouseenter`,()=>{o(),t.classList.add(`is-active`)}),e.addEventListener(`mousemove`,e=>{let o=n.getBoundingClientRect(),s=a((e.clientX-o.left)/o.width,0,1),c=a((e.clientY-o.top)/o.height,0,1),l=o.width*i,u=o.height*i,d=t.getBoundingClientRect(),f=a(-(s*l-d.width/2),-(l-d.width),0),p=a(-(c*u-d.height/2),-(u-d.height),0);r.style.transform=`translate(${f}px, ${p}px)`}),e.addEventListener(`mouseleave`,()=>{t.classList.remove(`is-active`)})});</script><!-- FLOW (temporarily hidden — keep markup for later, see chat with Ulyana 2026-07-28)
+    <section id="flow" class="section">
+      <div class="container">
+        <h2 class="section-title">От точки входа до&nbsp;подтверждения</h2>
+
+        <div class="grid-2 reveal" style="margin-top: 8px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap: var(--space-3);">
+            <div class="phone-mock">
+              <Image class="phone-mock__shot" src={orderDetail} alt="Order detail screen с&nbsp;точкой входа «Reschedule payment»" width={360} height={786} />
+              <img class="phone-mock__frame" src="/case-assets/iphone14-frame.png" alt="" />
+            </div>
+            <p class="card-text" style="text-align:center;">Шаг 1&nbsp;— order detail screen: оставшаяся сумма, monthly payment, список платежей и&nbsp;точка входа «Reschedule payment»</p>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap: var(--space-3);">
+            <div class="phone-mock">
+              <Image class="phone-mock__shot" src={intro} alt="Intro screen «Reschedule your payment» с&nbsp;тремя карточками правил" width={360} height={732} />
+              <img class="phone-mock__frame" src="/case-assets/iphone14-frame.png" alt="" />
+            </div>
+            <p class="card-text" style="text-align:center;">Шаг 2&nbsp;— intro-экран объясняет механику до&nbsp;выбора даты: сколько дней можно перенести, какая будет комиссия, когда пролонгация доступна</p>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; align-items:center; gap: var(--space-3); margin-top: var(--space-5); max-width: 220px; margin-inline: auto;">
+          <div class="phone-mock">
+            <Image class="phone-mock__shot" src={confirmation} alt="Confirmation screen с&nbsp;breakdown суммы и&nbsp;бейджем maximum reschedule option" width={360} height={794} />
+            <img class="phone-mock__frame" src="/case-assets/iphone14-frame.png" alt="" />
+          </div>
+          <p class="card-text" style="text-align:center;">Confirmation&nbsp;— новая дата, будущее расписание, бейдж «maximum reschedule option» (если применимо), breakdown суммы и&nbsp;конкретный CTA «Pay RM&nbsp;X»</p>
+        </div>
+
+        <h3 style="margin-top: var(--space-5); font-size: var(--text-h3); text-align:center;">Шаг 3 — выбор новой даты: без&nbsp;иллюзии выбора</h3>
+        <p class="card-text" style="max-width: 700px; text-align: center; color: #323232;">
+          Показываем только доступные по&nbsp;бизнес-правилам варианты&nbsp;— с&nbsp;датой, комиссией, сроком до&nbsp;нового платежа и&nbsp;условием использования. Если доступен один вариант, экран не&nbsp;создаёт иллюзию выбора
+        </p>
+        <div class="compare reveal">
+          <div class="compare__col">
+            <p class="card-title">Первая пролонгация</p>
+            <div class="phone-mock">
+              <Image class="phone-mock__shot" src={dateTwoOptions} alt="Set new payment date: 2 варианта — 19 сентября (14 дней) и&nbsp;12 сентября (7 дней)" width={360} height={714} />
+              <img class="phone-mock__frame" src="/case-assets/iphone14-frame.png" alt="" />
+            </div>
+          </div>
+          <div class="compare__col">
+            <p class="card-title">7 дней уже использованы</p>
+            <div class="phone-mock">
+              <Image class="phone-mock__shot" src={dateOneOption} alt="Set new payment date: единственный оставшийся вариант — 12 сентября, 7 дней" width={360} height={714} />
+              <img class="phone-mock__frame" src="/case-assets/iphone14-frame.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; align-items:center; gap: var(--space-3); margin-top: var(--space-5); max-width: 220px; margin-inline: auto;">
+          <div class="phone-mock">
+            <Image class="phone-mock__shot" src={success} alt="Success screen: Payment schedule changed, новая дата платежа и&nbsp;сумма" width={360} height={645} />
+            <img class="phone-mock__frame" src="/case-assets/iphone14-frame.png" alt="" />
+          </div>
+          <p class="card-text" style="text-align:center;">Шаг 4&nbsp;— оплата комиссии через select payment method и&nbsp;подтверждение: «Payment schedule changed», новая дата, сумма, способ оплаты</p>
+        </div>
+
+        <p class="card-text" style="max-width: 700px; text-align: center; color: var(--ink-soft); margin-top: var(--space-5);">
+          Bottom sheet «How does rescheduling work?» доступен с&nbsp;intro-экрана и&nbsp;с&nbsp;выбора даты как&nbsp;справка по&nbsp;запросу — те же&nbsp;три правила, но&nbsp;не&nbsp;обязательны к&nbsp;прочтению, чтобы не&nbsp;перегружать основной сценарий
+        </p>
+      </div>
+    </section>
+    --><!-- RESULTS (METRICS) --><section id="results-metrics" class="section"><div class="container"><h2 class="section-title">Первые результаты после&nbsp;запуска</h2><p class="card-text" style="max-width: 700px; text-align: center; color: #323232; margin-top: -12px;">Так&nbsp;как раньше отдельного сценария переноса платежа не&nbsp;было, мы сравнивали не&nbsp;старый и&nbsp;новый сценарий напрямую, а&nbsp;поведение пользователей после&nbsp;пропущенного платежа: уходят ли&nbsp;они в&nbsp;более глубокую просрочку или&nbsp;переходят в&nbsp;управляемый сценарий&nbsp;— оплату, перенос и&nbsp;возврат к&nbsp;платежу в&nbsp;новую дату</p><div class="grid-3 reveal" style="margin-top: 10px;"><div class="card card--white bullet"><p class="stat-tag stat-tag--muted">новая точка входа</p><div class="stat-value"><span>21%</span></div><p class="stat-label">Открыли сценарий переноса из&nbsp;доступных точек входа</p></div><div class="card card--white bullet"><p class="stat-tag stat-tag--muted">завершение сценария</p><div class="stat-value"><span>58%</span></div><p class="stat-label">Пользователей, попавших в&nbsp;сценарий, оплатили комиссию за&nbsp;перенос</p></div><div class="card card--white bullet"><p class="stat-tag stat-tag--muted">возврат в&nbsp;платёжный сценарий</p><div class="stat-value"><span>&gt;50%</span></div><p class="stat-label">Вернулись к&nbsp;оплате после&nbsp;переноса платежа</p></div></div></div></section><!-- SUMMARY (temporarily hidden — keep markup for later, see chat with Ulyana 2026-07-28)
+    <section id="summary" class="section">
+      <div class="container">
+        <h2 class="section-title">Итог</h2>
+        <p class="card-text" style="max-width: 700px; text-align: center; color: #323232;">
+          Кейс важен тем, что&nbsp;здесь работа не&nbsp;только с&nbsp;UI, а&nbsp;со&nbsp;сложной бизнес-логикой: нужно было перевести правила продукта в&nbsp;понятный пользовательский сценарий, не&nbsp;потерять юридически значимые условия и&nbsp;сохранить спокойный, поддерживающий тон в&nbsp;чувствительной платёжной ситуации.
+        </p>
+      </div>
+    </section>
+    --></main></div></div><script type="module">var e=null;document.addEventListener(`astro:page-load`,()=>{e?.();let t=[],n=document.querySelector(`.case-shell__close`);if(n){let e=!1,r=t=>{if(e){t.preventDefault();return}e=!0,document.body.classList.add(`is-closing`);let n=window.history.state;n&&typeof n.index==`number`&&n.index>0&&(t.preventDefault(),history.back())};n.addEventListener(`click`,r),t.push(()=>n.removeEventListener(`click`,r));let i=t=>{t.key===`Escape`&&!e&&n.click()};document.addEventListener(`keydown`,i),t.push(()=>document.removeEventListener(`keydown`,i));let a=t=>{if(e)return;let r=t.target;r.closest(`.case-shell`)||r.closest(`.case-toc`)||r.closest(`.case-shell__close`)||n.click()};document.addEventListener(`click`,a),t.push(()=>document.removeEventListener(`click`,a))}let r=document.querySelector(`.case-toc`),i=document.querySelector(`.case-shell`);if(r&&i){let e=Array.from(r.querySelectorAll(`.case-toc__dot`)),n=Array.from(r.querySelectorAll(`.case-toc__popover a`)),a=e.map(e=>document.getElementById(e.dataset.section??``)).filter(e=>e!==null);if(a.length){let r=t=>{for(let n of e)n.classList.toggle(`is-active`,n.dataset.section===t);for(let e of n)e.classList.toggle(`is-active`,e.dataset.section===t)},o=()=>{let e=a[0];for(let t of a)t.getBoundingClientRect().top<=160&&(e=t);r(e.id)};i.addEventListener(`scroll`,o,{passive:!0}),o();let s=[...e,...n],c=e=>{let t=e.currentTarget;r(t.dataset.section??``)};for(let e of s)e.addEventListener(`click`,c);t.push(()=>{i.removeEventListener(`scroll`,o);for(let e of s)e.removeEventListener(`click`,c)})}}e=()=>t.forEach(e=>e())});</script><script type="module">document.addEventListener(`astro:page-load`,()=>{let e=new IntersectionObserver(t=>{for(let n of t)n.isIntersecting&&(n.target.classList.add(`is-visible`),e.unobserve(n.target))},{threshold:.15});document.querySelectorAll(`.reveal:not(.is-visible)`).forEach(t=>e.observe(t)),document.querySelectorAll(`video[autoplay]`).forEach(e=>{e.readyState===0&&e.load(),e.play().catch(()=>{})})});</script></body></html>
